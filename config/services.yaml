@@ -1,20 +1,16 @@
 services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Netmex\Response\:
+    resource: '../src/'
+
   Netmex\Response\EventListener\ResponseListener:
     tags:
-      - {
-          name: kernel.event_listener,
-          event: kernel.view,
-          method: onKernelView,
-        }
-    autowire: true
-    autoconfigure: false
+      - { name: kernel.event_listener, event: kernel.view, method: onKernelView }
 
-  Netmex\Response\EventListener\ExceptionListener:
-    tags:
-      - {
-          name: kernel.event_listener,
-          event: kernel.exception,
-          method: onExceptionEvent,
-        }
-    autowire: true
-    autoconfigure: false
+  Netmex\Response\Resolver\ResponseStrategyResolver:
+    arguments:
+      $strategies: !tagged_iterator app.response_strategy
+      $defaultStrategy: '@Netmex\Response\Strategy\JsonResponseStrategy'

@@ -1,1 +1,48 @@
 /vendor/
+
+# Symfony runtime & cache
+/var/
+/public/bundles/
+
+# Node
+/node_modules/
+
+# IDEs
+/.idea/
+/.vscode/
+*.iml
+
+# Environment local files (don't ignore .env or .env.example)
+/.env.local
+/.env.local.php
+
+# Logs
+*.log
+/logs/
+
+# Test & coverage
+/coverage/
+/phpunit.result.cache
+.phpunit.result.cache
+
+# Build / artifacts
+/build/
+/dist/
+
+# Misc
+.DS_Store
+Thumbs.db
+composer.phar
+npm-debug.log
+yarn-error.log
+
+# Tool caches
+.php_cs.cache
+.phpstan/
+.phpstan/cache/
+
+# Ignore IDE helper generated files (optional)
+/_ide_helper.php
+
+# Optional: ignore compiled assets
+/public/build/
